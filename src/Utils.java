@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,5 +25,17 @@ public class Utils {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<List<Integer>> get2dListOf0(int row, int col) {
+        List<List<Integer>> lists = new ArrayList<>(row);
+        for (int i = 0; i < row; i++) {
+            List<Integer> list = new ArrayList<>(col);
+            for (int j = 0; j < col; j++) {
+                list.add(0);
+            }
+            lists.add(list);
+        }
+        return lists;
     }
 }
