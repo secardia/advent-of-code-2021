@@ -2,7 +2,7 @@ import java.util.List;
 
 public class day02 {
 
-    private static final String DATA_NAME = "src/main/resources/data02.txt";
+    private static final String DATA_NAME = "resources/data02.txt";
     private static final List<String> datas = Utils.parseStrings(DATA_NAME);
 
     public static void main(String[] args) {

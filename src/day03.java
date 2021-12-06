@@ -4,7 +4,7 @@ import java.util.List;
 
 public class day03 {
 
-    private static final String DATA_NAME = "src/main/resources/data03.txt";
+    private static final String DATA_NAME = "resources/data03.txt";
     private static final List<String> datas = Utils.parseStrings(DATA_NAME);
 
     public static void main(String[] args) {

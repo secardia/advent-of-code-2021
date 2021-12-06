@@ -3,7 +3,7 @@ import java.util.List;
 
 public class day01 {
 
-    private static final String DATA_NAME = "src/main/resources/data01.txt";
+    private static final String DATA_NAME = "resources/data01.txt";
     private static final List<Integer> datas = Utils.parseInts(DATA_NAME);
 
     public static void main(String[] args) {

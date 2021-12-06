@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class day04 {
 
-    private static final String DATA_NAME = "src/main/resources/data04.txt";
+    private static final String DATA_NAME = "resources/data04.txt";
     private static List<Board> boards;
     private static List<Integer> moves;
 
