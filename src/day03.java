@@ -1,11 +1,15 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class day03 {
 
     private static final String DATA_NAME = "resources/data03.txt";
-    private static final List<String> datas = Utils.parseStrings(DATA_NAME);
+    private static List<String> report;
 
     public static void main(String[] args) {
         one();
@@ -13,12 +17,13 @@ public class day03 {
     }
 
     private static void one() {
+        initReport();
         int gamma = 0b0;
         int epsilon = 0b0;
-        for (int i = 0; i < datas.get(0).length(); i++) {
+        for (int i = 0; i < report.get(0).length(); i++) {
             gamma <<= 1;
             epsilon <<= 1;
-            char c = mostCommonBitAt(i, datas);
+            char c = mostCommonBitAt(i, report);
             if (c == '1') {
                 gamma = gamma | 0b1;
             } else {
@@ -29,8 +34,9 @@ public class day03 {
     }
 
     private static void two() {
-        List<String> oxy = new ArrayList<>(datas);
-        List<String> coo = new ArrayList<>(datas);
+        initReport();
+        List<String> oxy = new ArrayList<>(report);
+        List<String> coo = new ArrayList<>(report);
         int i = 0;
         while (oxy.size() > 1) {
             char c = mostCommonBitAt(i, oxy);
@@ -66,5 +72,15 @@ public class day03 {
             }
         }
         return nbOne >= strs.size() / 2. ? '1' : '0';
+    }
+
+    private static void initReport() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(day03.DATA_NAME));
+            report = reader.lines().collect(Collectors.toList());
+            reader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
